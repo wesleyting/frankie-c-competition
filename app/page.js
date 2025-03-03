@@ -53,7 +53,7 @@ function LandingPage() {
                 <img
                   src="/squiggle.png" // Replace with actual image path
                   alt="Squiggle"
-                  className="absolute w-[100px] sm:w-[135px] md:w-[150px] translate-y-[8px] md:translate-y-0"
+                  className="absolute w-[100px] sm:w-[135px] md:w-[150px] lg:w-[230px] translate-y-[8px] md:translate-y-0"
                 />
                 {/* The word "name" */}
                 <span className="relative z-10 md:pl-3">name</span>
