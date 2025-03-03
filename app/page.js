@@ -326,7 +326,7 @@ function LandingPage() {
           </div>
 
           {/* Right Section: Accessibility Notice */}
-          <div className="text-md max-w-lg self-end">
+          <div className="text-md max-w-lg lg:self-end">
             <p>
               We are committed to ensuring accessibility. If you need assistance
               entering this contest, please contact
