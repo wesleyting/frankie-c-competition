@@ -93,13 +93,13 @@ function LandingPage() {
               </button>
             </div>
           </div>
-          <div className="lg:w-1/2 flex justify-center">
+          <div className="lg:w-1/2 flex justify-center mr-6">
             <Image
               src="/frankie-hero.png"
               alt="Person"
-              width={400}
-              height={400}
-              className="md:w-[450px] 2xl:w-[550px]"
+              width={450}
+              height={450}
+              className="md:w-[500px] 2xl:w-[600px]"
             />
           </div>
         </div>
@@ -114,7 +114,7 @@ function LandingPage() {
             viewBox="0 0 167 154"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute top-[200px] left-[-50] w-40 hidden xl:block z[-1]"
+            className="absolute top-[200px] left-[0] w-[120px] hidden xl:block z[-1]"
           >
             <path
               d="M165.409 34.5977C160.274 10.758 137.387 -3.94083 114.163 1.06121C95.4101 5.1003 82.321 21.3995 80.636 39.9763C71.4489 23.7435 52.9066 14.7239 34.1535 18.763C10.9249 23.766 -3.97845 46.0447 1.15816 69.8934C3.74999 81.927 10.3898 89.3931 20.0884 96.8243L105.103 153.384L159.215 66.8587C165.002 56.0924 167.998 46.6222 165.409 34.5977Z"
@@ -161,7 +161,7 @@ function LandingPage() {
                   viewBox="0 0 166 150"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="absolute top-[60px] right-40 w-28 z-0 opacity-60 z-[1] lg:top-[30px]"
+                  className="absolute top-[60px] right-40 w-[100px] z-0 opacity-60 z-[1] lg:top-[30px]"
                 >
                   <path
                     fillRule="evenodd"
@@ -201,7 +201,7 @@ function LandingPage() {
       <section className="w-full bg-cBeige z-10">
         {/* Header above the form */}
         <div
-          className=" max-w-3xl lg:max-w-4xl text-center mt-8 relative z-10  mx-auto md:mt-12 lg:mb-3 lg:mt-14"
+          className=" max-w-3xl lg:max-w-4xl text-center mt-8 relative z-10  mx-auto md:mt-12 lg:mb-5 lg:mt-16"
           ref={formRef}
         >
           <h2 className="text-3xl font-bold lg:text-5xl">
