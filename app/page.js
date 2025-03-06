@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Instagram, Twitter, Youtube } from "lucide-react";
 
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState({
@@ -68,7 +69,7 @@ export default function CountdownTimer() {
       </header>
 
       <div className="flex flex-col items-center justify-center min-h-[calc(100vh-250px)] z-10">
-        <div className="w-full max-w-4xl p-8 relative">
+        <div className="w-full max-w-6xl p-8 relative">
           <div className="absolute inset-0  pointer-events-none max-w-4xl">
             {/* Clubs (♣️) */}
             <img
@@ -80,7 +81,7 @@ export default function CountdownTimer() {
             <img
               src="/hearts.png"
               alt="Hearts"
-              className="floating-suit-4 bottom-[-18%] right-[0%] sm:block"
+              className="floating-suit-4 bottom-[-18%] right-[-18%] sm:block"
             />
             {/* Spades (♠️) */}
             <img
@@ -96,16 +97,16 @@ export default function CountdownTimer() {
             />
           </div>
 
-          <h1 className="mb-6 xl:mb-8 text-center text-3xl font-bold text-black md:text-4xl lg:text-5xl">
-            Start Drafting Your $10,000 Idea!
+          <h1 className="mb-6 xl:mb-8 text-center text-3xl font-bold text-black md:text-4xl lg:text-5xl md:leading-[1.2]">
+            Start Thinking About Your $10,000 Idea!
           </h1>
 
           <div className="space-y-6">
-            <p className="text-center text-2xl font-medium text-black mb-16 lg:mb-[150px]">
-              🚨 Finalizing Contest Details. Goes Live In:
+            <p className="text-center text-3xl md:text-4xl font-medium text-black mb-16 lg:mb-[150px]">
+              Goes Live In:
             </p>
 
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-4 max-w-4xl m-auto">
+            <div className="grid grid-cols-2 gap-10 md:grid-cols-4 max-w-4xl m-auto">
               {[
                 { label: "Days", value: timeLeft.days },
                 { label: "Hours", value: timeLeft.hours },
@@ -114,9 +115,9 @@ export default function CountdownTimer() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="flex flex-col items-center rounded-lg bg-white py-8 md:py-12 text-center border-2 border-black z-10"
+                  className="flex flex-col items-center rounded-xl bg-white py-8 md:py-12 text-center border-2 border-black z-10"
                 >
-                  <span className="text-5xl font-bold text-black md:text-6xl mb-4">
+                  <span className="text-5xl font-bold text-black md:text-6xl xl:text-7xl mb-4">
                     {item.value.toString().padStart(2, "0")}
                   </span>
                   <span className="mt-2 text-lg font-medium text-black md:text-2xl">
@@ -128,6 +129,37 @@ export default function CountdownTimer() {
           </div>
         </div>
       </div>
+
+      <footer className="w-full pb-6 pt-3 sm:pt-12 flex justify-center items-center bg-cBeige">
+        <div className="flex space-x-6">
+          {/* YouTube */}
+          <Link
+            href="https://www.youtube.com/@FrankieCPoker"
+            className="text-black hover:text-gray-600 transition"
+          >
+            <Youtube size={32} />
+            <span className="sr-only">YouTube</span>
+          </Link>
+
+          {/* Twitter */}
+          <Link
+            href="https://x.com/FrankieCucc"
+            className="text-black hover:text-gray-600 transition"
+          >
+            <Twitter size={32} />
+            <span className="sr-only">Twitter (X)</span>
+          </Link>
+
+          {/* Instagram */}
+          <Link
+            href="https://www.instagram.com/frankie_cucc/?hl=en"
+            className="text-black hover:text-gray-600 transition"
+          >
+            <Instagram size={32} />
+            <span className="sr-only">Instagram</span>
+          </Link>
+        </div>
+      </footer>
     </div>
   );
 }
