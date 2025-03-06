@@ -14,12 +14,23 @@ export default function CountdownTimer() {
   const [isExpired, setIsExpired] = useState(false);
 
   useEffect(() => {
-    // Set the end date to March 14, 2025, at 12:00 AM Pacific Time
-    const endDate = new Date("2025-03-14T00:01:00-08:00").getTime();
+    // Set target date in Pacific Time (March 14, 2025, 12:00 AM)
+    const targetDate = new Date("2025-03-14T00:00:00-08:00"); // Initially PST (-08:00)
+
+    // Convert current time to Pacific Time dynamically
+    const getPacificTime = () => {
+      return new Date(
+        new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
+      );
+    };
 
     const calculateTimeLeft = () => {
-      const now = new Date().getTime();
-      const difference = endDate - now;
+      const pacificNow = getPacificTime(); // Get the current time in Pacific Time
+
+      console.log("Pacific Time Now:", pacificNow.toString()); // ✅ Debugging: Check if it's showing the correct time
+      console.log("Target Pacific Time:", targetDate.toString());
+
+      const difference = targetDate.getTime() - pacificNow.getTime();
 
       if (difference <= 0) {
         setIsExpired(true);
@@ -36,13 +47,9 @@ export default function CountdownTimer() {
       });
     };
 
-    // Calculate immediately
     calculateTimeLeft();
-
-    // Update every second
     const timer = setInterval(calculateTimeLeft, 1000);
 
-    // Clean up the interval on component unmount
     return () => clearInterval(timer);
   }, []);
 
