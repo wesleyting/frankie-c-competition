@@ -75,7 +75,7 @@ export default function CountdownTimer() {
             <img
               src="/clubs.png"
               alt="Clubs"
-              className="floating-suit-2 top-[24%] right-[-4%] sm:block"
+              className="floating-suit-2 top-[26%] right-[-10%] sm:block"
             />
             {/* Hearts (♥️) */}
             <img
@@ -87,13 +87,13 @@ export default function CountdownTimer() {
             <img
               src="/spades.png"
               alt="Spades"
-              className="floating-suit-3 bottom-[-20%] left-[-6%] sm:block"
+              className="floating-suit-3 bottom-[-20%] left-[-5%] sm:block"
             />
             {/* Diamonds (♦️) */}
             <img
               src="/diamonds.png"
               alt="Diamonds"
-              className="floating-suit-1 top-[40%] left-[0%] sm:block"
+              className="floating-suit-1 top-[45%] left-[8%] sm:block"
             />
           </div>
 
