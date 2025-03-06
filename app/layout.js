@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
         {children}
         <Analytics />
-        <CookieBanner /> {/* Add this at the bottom */}
+        {/* <CookieBanner />  */}
       </body>
     </html>
   );
