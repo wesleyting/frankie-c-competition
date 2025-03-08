@@ -130,9 +130,8 @@ export default function CountdownTimer() {
         </div>
       </div>
 
-      <footer className="w-full pb-6 pt-3 sm:pt-12 flex justify-center items-center bg-cBeige">
-        <div className="flex space-x-6">
-          {/* YouTube */}
+      <footer className="w-full pb-6 pt-3 sm:pt-12 flex flex-col items-center bg-cBeige">
+        <div className="flex space-x-6 mb-4">
           <Link
             href="https://www.youtube.com/@FrankieCPoker"
             className="text-black hover:text-gray-600 transition"
@@ -140,8 +139,6 @@ export default function CountdownTimer() {
             <Youtube size={32} />
             <span className="sr-only">YouTube</span>
           </Link>
-
-          {/* Twitter */}
           <Link
             href="https://x.com/FrankieCucc"
             className="text-black hover:text-gray-600 transition"
@@ -149,8 +146,6 @@ export default function CountdownTimer() {
             <Twitter size={32} />
             <span className="sr-only">Twitter (X)</span>
           </Link>
-
-          {/* Instagram */}
           <Link
             href="https://www.instagram.com/frankie_cucc/?hl=en"
             className="text-black hover:text-gray-600 transition"
@@ -158,6 +153,15 @@ export default function CountdownTimer() {
             <Instagram size={32} />
             <span className="sr-only">Instagram</span>
           </Link>
+        </div>
+
+        <div className="text-sm text-center text-black font-semibold px-20">
+          <Link href="/privacy-policy" className="hover:underline">
+            Privacy Policy
+          </Link>
+          <span className="mx-2">|</span>
+          Contest sponsored and run by <strong>ABC Media</strong> and{" "}
+          <strong>Real Time Media</strong>.
         </div>
       </footer>
     </div>
