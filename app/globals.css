@@ -159,7 +159,7 @@ body {
 
 .marquee-text {
   white-space: nowrap;
-  padding-right: 120px; /* Optional padding between texts */
+  padding-right: 6px; /* Optional padding between texts */
   flex-shrink: 0; /* Prevent shrinking of the text */
 }
 
