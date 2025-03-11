@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { Instagram, Twitter, Youtube } from "lucide-react";
 
+export const metadata = {
+  title: "Privacy Policy | Frankie C Contest",
+  description:
+    "Read our Privacy Policy to understand how we handle your data and keep your information secure.",
+};
+
 export default function PrivacyPolicy() {
   return (
     <div className="text-black font-montserrat bg-cBeige min-h-screen flex flex-col bg-cBeige">

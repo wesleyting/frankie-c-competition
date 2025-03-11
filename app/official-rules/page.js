@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { Instagram, Twitter, Youtube } from "lucide-react";
 
+export const metadata = {
+  title: "Official Rules | Frankie C Contest",
+  description:
+    "Read the official rules for the Frankie C Contest. Learn how to enter, eligibility requirements, judging criteria, prize details, and more.",
+};
+
 export default function OfficialRules() {
   return (
     <div className="text-black font-montserrat bg-cBeige min-h-screen flex flex-col bg-cBeige">
