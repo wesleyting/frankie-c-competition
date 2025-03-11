@@ -305,3 +305,14 @@ body {
   width: 80px;
   animation: float4 5.2s ease-in-out infinite alternate-reverse;
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track.to-right,
+  .marquee__track.to-left,
+  .marquee,
+  .animate-marquee {
+    animation: none !important;
+    transition: none !important;
+  }
+}

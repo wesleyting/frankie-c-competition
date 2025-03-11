@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
     <div className="text-black font-montserrat bg-cBeige min-h-screen flex flex-col bg-cBeige">
       <header className="w-full pt-3 sm:py-6 flex justify-center items-center bg-cBeige z-10">
         <div className="flex items-center">
-          <Link href="/" passHref>
+          <Link href="/" passHref aria-label="Go to homepage">
             <svg
               width="120"
               height="40"
