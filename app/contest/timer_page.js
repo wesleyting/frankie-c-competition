@@ -14,7 +14,6 @@ export default function CountdownTimer() {
   const [isExpired, setIsExpired] = useState(false);
 
   useEffect(() => {
-    a;
     // Set the end date to March 14, 2025, at 12:00 AM Pacific Time
     const endDate = new Date("2025-03-14T00:01:00-07:00").getTime();
 

@@ -1,20 +1,54 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRef } from "react";
 import { Instagram, Twitter, Youtube } from "lucide-react";
 
-function LandingPage() {
-  const formRef = useRef(null);
+export default function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  const [isExpired, setIsExpired] = useState(false);
 
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  useEffect(() => {
+    // Set the end date to March 14, 2025, at 12:00 AM Pacific Time
+    const endDate = new Date("2025-04-04T09:00:00-07:00").getTime();
+
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const difference = endDate - now;
+
+      if (difference <= 0) {
+        setIsExpired(true);
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ),
+        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((difference % (1000 * 60)) / 1000),
+      });
+    };
+
+    // Calculate immediately
+    calculateTimeLeft();
+
+    // Update every second
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col max-w-full font-montserrat">
-      <header className="w-full pt-3 sm:py-6 flex justify-center items-center bg-cBeige lg:pt-10">
+    <div className="bg-cBeige min-h-screen font-montserrat relative overflow-hidden">
+      <header className="w-full pt-3 sm:py-6 flex justify-center items-center bg-cBeige z-10">
         <div className="flex items-center">
           <Link href="/" passHref aria-label="Go to homepage">
             <svg
@@ -34,341 +68,102 @@ function LandingPage() {
         </div>
       </header>
 
-      <section className="px-6 pt-3  bg-cBeige 2xl:pt-6">
-        <div className=" lg:max-w-[1200px] 2xl:max-w-[1420px] m-auto flex-1 flex flex-col lg:flex-row items-center justify-between">
-          <div className="lg:w-1/2 mb-2 max-w-[600px] md:max-w-[800px]">
-            <h1 className="text-4xl sm:text-5xl sm:leading-[1.2] lg:text-6xl lg:leading-[1.2] lg:mb-0 2xl:text-7xl 2xl:leading-[1.2] leading-[1.4] font-bold mb-3 sm:mb-6 md:mb-16 capitalize text-center lg:text-left">
-              Help me
-              <span className="relative inline-block px-2">
-                {/* Squiggle Image Behind */}
-                <img
-                  src="/squiggle.png" // Replace with actual image path
-                  alt=""
-                  className="absolute w-[100px] sm:w-[135px] md:w-[150px] lg:w-[230px] translate-y-[8px] md:translate-y-0"
-                />
-                {/* The word "name" */}
-                <span className="relative z-10 md:pl-3">name</span>
-              </span>
-              my brownie & have a chance to win...
-            </h1>
-            <div className="relative md:justify-start text-center lg:text-left lg:mt-5 2xl:mt-16">
-              {/* Main Prize Text */}
-              <span className="text-6xl sm:text-8xl md:text-9xl lg:text-8xl 2xl:text-9xl font-extrabold text-white relative text-stroke z-10">
-                $10,
-                <span className="relative inline-block">
-                  {/* Spiky Circle PNG Behind */}
-                  <img
-                    src="/star.png" // Replace with actual image path
-                    alt=""
-                    className="absolute w-[220px] -translate-y-[48px] translate-x-[72px] hidden md:block lg:hidden 2xl:block"
-                  />
-                  <span className="relative">000!!!</span>{" "}
-                  {/* The Second "0" */}
-                </span>
-                {/* Second $10,000!!! (Behind & Slightly Lower/Right) */}
-                <span
-                  className="absolute text-6xl sm:text-8xl md:text-9xl lg:text-8xl left-0 text-stroke-orange font-extrabold z-[-1] 
-                     translate-x-[5px] translate-y-[6px] md:translate-x-[10px] md:translate-y-[12px] 2xl:text-9xl"
-                >
-                  $10,000!!!
-                </span>
-              </span>
-            </div>
-
-            <div className="flex justify-center lg:justify-start md:mt-6 2xl:pb-10">
-              <button
-                onClick={scrollToForm}
-                className="bg-[#3D36EE] mt-10 sm:mt-12 mb-3 text-2xl text-white font-semibold py-4 px-9 rounded-full shadow-lg hover:bg-[#3530d1] focus:outline-none transition duration-300"
-              >
-                Name My Brownie!
-              </button>
-            </div>
-          </div>
-          <div className="lg:w-1/2 flex justify-center mr-6">
-            <Image
-              src="/frankie-hero.png"
-              alt="Frankie C holding cash, thinking of brownie name ideas"
-              width={450}
-              height={450}
-              className="md:w-[500px] 2xl:w-[600px]"
+      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-250px)] z-10">
+        <div className="w-full max-w-6xl p-8 relative">
+          <div className="absolute inset-0  pointer-events-none max-w-4xl">
+            {/* Clubs (♣️) */}
+            <img
+              src="/clubs.png"
+              alt="Clubs"
+              className="floating-suit-2 top-[26%] right-[-10%] sm:block"
+            />
+            {/* Hearts (♥️) */}
+            <img
+              src="/hearts.png"
+              alt="Hearts"
+              className="floating-suit-4 bottom-[-18%] right-[-18%] sm:block"
+            />
+            {/* Spades (♠️) */}
+            <img
+              src="/spades.png"
+              alt="Spades"
+              className="floating-suit-3 bottom-[-20%] left-[-5%] sm:block"
+            />
+            {/* Diamonds (♦️) */}
+            <img
+              src="/diamonds.png"
+              alt="Diamonds"
+              className="floating-suit-1 top-[45%] left-[8%] sm:block"
             />
           </div>
-        </div>
-      </section>
-      <section className="py-10 px-6 bg-cViolet lg:pb-16 overflow-hidden">
-        {/* Container with max-width */}
-        <div className="max-w-[1200px] mx-auto relative">
-          {/* Heart SVG (positioned top-right inside the container) */}
-          <svg
-            width="167"
-            height="154"
-            viewBox="0 0 167 154"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="absolute top-[200px] left-[0] w-[120px] hidden xl:block z[-1]"
-          >
-            <path
-              d="M165.409 34.5977C160.274 10.758 137.387 -3.94083 114.163 1.06121C95.4101 5.1003 82.321 21.3995 80.636 39.9763C71.4489 23.7435 52.9066 14.7239 34.1535 18.763C10.9249 23.766 -3.97845 46.0447 1.15816 69.8934C3.74999 81.927 10.3898 89.3931 20.0884 96.8243L105.103 153.384L159.215 66.8587C165.002 56.0924 167.998 46.6222 165.409 34.5977Z"
-              fill="#C60000"
-            />
-          </svg>
 
-          {/* Image Below the Heart */}
-          <Image
-            src="/healthy-tag.png" // Replace with your actual image path
-            alt="Decorative Healthy Tag"
-            width={350}
-            height={350}
-            className="absolute top-[50px] right-[-200px] w-100 hidden xl:inline-block xl:z-[1]"
-          />
+          <h1 className="mb-6 xl:mb-8 text-center text-3xl font-bold text-black md:text-4xl lg:text-5xl md:leading-[1.2]">
+            Did Your Name Make the Top 3?
+          </h1>
 
-          {/* Content Section */}
-          <div className="lg:items-center xl:justify-between text-center max-w-[600px] lg:max-w-[800px] m-auto mt-6">
-            <h2 className="text-3xl lg:text-5xl font-bold text-white text-center mb-8 lg:mb-12">
-              A Healthy Dessert—Now It Needs a Name!
-            </h2>
-            {/* Video/Image Section */}
-            <div className=" mb-8 lg:mb-0">
-              {/* YouTube Embed */}
-              <div className="aspect-video w-full rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/5e4yReuXBAc?rel=0"
-                  title="Video of Frankie explaining the brownie contest"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="relative">
-                <p className="text-lg lg:text-2xl text-white text-left max-w-3xl mx-auto mt-3 z-10 lg:mt-6">
-                  Watch the video to see how it all came together, then submit
-                  your <span className="font-bold">best name idea!</span>
-                </p>
+          <div className="space-y-6">
+            <p className="text-center text-3xl md:text-4xl font-medium text-black mb-16 lg:mb-[150px]">
+              Public Voting Opens In:
+            </p>
 
-                {/* Club SVG (Positioned Below the Heading) */}
-                <svg
-                  width="166"
-                  height="150"
-                  viewBox="0 0 166 150"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute top-[60px] right-40 w-[100px] z-0 opacity-60 z-[1] lg:top-[30px]"
+            <div className="grid grid-cols-2 gap-10 md:grid-cols-4 max-w-4xl m-auto">
+              {[
+                { label: "Days", value: timeLeft.days },
+                { label: "Hours", value: timeLeft.hours },
+                { label: "Minutes", value: timeLeft.minutes },
+                { label: "Seconds", value: timeLeft.seconds },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="flex flex-col items-center rounded-xl bg-white py-8 md:py-12 text-center border-2 border-black z-10"
                 >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M107.838 140.09C99.2897 135.544 93.1006 128.299 89.7626 119.963C89.0024 122.801 87.9109 125.598 86.4724 128.303C76.2518 147.521 52.3867 154.815 33.1683 144.595C13.95 134.374 6.65592 110.509 16.8766 91.2907C21.6196 82.3721 29.3011 76.0216 38.093 72.7976L0.191165 68.7045L25.8341 20.4871L50.4166 49.624C48.1747 40.5321 49.1459 30.6131 53.8888 21.6947C64.1095 2.47632 87.9746 -4.81775 107.193 5.40293C126.411 15.6236 133.705 39.4886 123.485 58.707C121.887 61.7116 119.955 64.4247 117.76 66.825C126.621 64.8436 136.206 65.8972 144.85 70.4946C164.069 80.7153 171.363 104.58 161.142 123.799C150.921 143.017 127.056 150.311 107.838 140.09Z"
-                    fill="#0C0C0C"
-                  />
-                </svg>
-              </div>
+                  <span className="text-5xl font-bold text-black md:text-6xl xl:text-7xl mb-4">
+                    {item.value.toString().padStart(2, "0")}
+                  </span>
+                  <span className="mt-2 text-lg font-medium text-black md:text-2xl">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
             </div>
-          </div>
-        </div>
-      </section>
-      <div className="bg-primary py-2 overflow-hidden z-10" aria-hidden="true">
-        <div className="relative">
-          <div className="marquee-container flex gap-x-0 animate-marquee">
-            {/* Duplicate the text for seamless looping */}
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
-            <p className="marquee-text text-primary-foreground text-2xl font-semibold whitespace-nowrap">
-              Win $10,000 ♠️♦️♣️♥️
-            </p>
           </div>
         </div>
       </div>
-      <section className="w-full bg-cBeige z-10">
-        {/* Header above the form */}
-        <div
-          className=" max-w-3xl lg:max-w-5xl text-center mt-8 relative z-10  mx-auto md:mt-12 lg:mb-5 lg:mt-16"
-          ref={formRef}
-        >
-          <h2 className="text-3xl font-bold lg:text-5xl">
-            Your idea could win you up to $10,000!
-          </h2>
-        </div>
-      </section>
-      <section className="pt-6 pb-100 px-6 bg-background flex flex-col items-center justify-center z-10 bg-cBeige relative h-full">
-        {/* Horizontal Marquee Background */}
-        <div className="absolute inset-0 flex flex-col items-center overflow-hidden hidden lg:block">
-          <div className="marquee mt-12" aria-hidden="true">
-            <div className="marquee__track to-right">
-              <div className="marquee__text">
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-              </div>
-            </div>
 
-            <div className="marquee__track to-left">
-              <div className="marquee__text">
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-              </div>
-            </div>
-            <div className="marquee__track to-right">
-              <div className="marquee__text">
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-              </div>
-            </div>
-
-            <div className="marquee__track to-left">
-              <div className="marquee__text">
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-                <span className="frankie brownie text-stroke">FRANKIE C</span>
-              </div>
-            </div>
-
-            <div className="marquee__track to-right">
-              <div className="marquee__text">
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-                <span className="frankie">FRANKIE C</span>
-              </div>
-            </div>
-          </div>
+      <footer className="w-full pb-6 pt-3 sm:pt-12 flex flex-col items-center bg-cBeige">
+        <div className="flex space-x-6 mb-4">
+          <Link
+            href="https://www.youtube.com/@FrankieCPoker"
+            className="text-black hover:text-gray-600 transition"
+          >
+            <Youtube size={32} />
+            <span className="sr-only">YouTube</span>
+          </Link>
+          <Link
+            href="https://x.com/FrankieCucc"
+            className="text-black hover:text-gray-600 transition"
+          >
+            <Twitter size={32} />
+            <span className="sr-only">Twitter (X)</span>
+          </Link>
+          <Link
+            href="https://www.instagram.com/frankie_cucc/?hl=en"
+            className="text-black hover:text-gray-600 transition"
+          >
+            <Instagram size={32} />
+            <span className="sr-only">Instagram</span>
+          </Link>
         </div>
 
-        <div className="z-20 w-full h-full max-w-3xl">
-          <iframe
-            id="JotFormIFrame-250546017685056"
-            title="Contest Entry Form - Name Our Brownie"
-            allow="geolocation; microphone; camera; fullscreen"
-            src="https://form.jotform.com/250546017685056"
-            style={{
-              width: "100%",
-              height: "1000px",
-            }}
-            className="md:h-[2000px]"
-            scrollable="no"
-          />
-        </div>
-      </section>
-      <footer className="bg-black text-white  px-12 py-16">
-        <div className="max-w-[1500px] mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-6 md:space-y-0">
-          {/* Left Section: Social Media & Links */}
-          <div className="flex flex-col items-center md:items-start max-w-lg">
-            {/* Social Media Links */}
-            <div className="flex justify-center md:justify-start space-x-6 mb-3">
-              <Link
-                href="https://www.youtube.com/@FrankieCPoker"
-                className="text-white hover:text-gray-300 transition"
-              >
-                <Youtube size={32} />
-                <span className="sr-only">YouTube</span>
-              </Link>
-              <Link
-                href="https://x.com/FrankieCucc"
-                className="text-white hover:text-gray-300 transition"
-              >
-                <Twitter size={32} />
-                <span className="sr-only">X (Twitter)</span>
-              </Link>
-              <Link
-                href="https://www.instagram.com/frankie_cucc/?hl=en"
-                className="text-white hover:text-gray-300 transition"
-              >
-                <Instagram size={32} />
-                <span className="sr-only">Instagram</span>
-              </Link>
-            </div>
-
-            {/* Links Section */}
-            <div className="text-white text-lg font-semibold mt-3">
-              <Link href="/official-rules" className="hover:underline">
-                Official Rules
-              </Link>
-              <span className="mx-2">|</span>
-              <Link href="/privacy-policy" className="hover:underline">
-                Privacy Policy
-              </Link>
-            </div>
-            <p className="mt-3 text-sm">
-              We are committed to ensuring accessibility. If you need assistance
-              entering this contest, please contact
-              <a
-                href="mailto:support@frankieccontest.com"
-                className="text-white font-semibold underline ml-1"
-              >
-                support@frankieccontest.com
-              </a>
-              .
-            </p>
-          </div>
-
-          {/* Right Section: Accessibility Notice */}
-          <div className="text-md max-w-lg lg:self-end">
-            <div className="text-sm text-white font-semibold">
-              Contest sponsored and run by <strong>ABC Media</strong> and{" "}
-              <strong>Real Time Media</strong>.
-            </div>
-            <p className="text-xs text-gray-400 mt-6 max-w-xl mx-auto">
-              Open only to legal residents of the 50 US/DC (excl. FL), 18+. Void
-              in FL & where prohibited. Entry Period: 3/14/25 12:01am PT –
-              3/20/25 11:59pm PT. Voting: 4/4/25 9am PT – 4/8/25 11:59pm PT.
-              Winners split prize pool. Subject to{" "}
-              <Link href="/official-rules" className="underline">
-                Official Rules
-              </Link>
-              . Sponsor: ABC Media LLC, c/o Silverberg, 2455 E Sunrise Blvd, St
-              1204, Ft. Lauderdale, FL 33304.
-            </p>
-          </div>
+        <div className="text-sm text-center text-black font-semibold px-20">
+          <Link href="/privacy-policy" className="hover:underline">
+            Privacy Policy
+          </Link>
+          <span className="mx-2">|</span>
+          Contest sponsored and run by <strong>ABC Media</strong> and{" "}
+          <strong>Real Time Media</strong>.
         </div>
       </footer>
     </div>
   );
 }
-
-export default LandingPage;
