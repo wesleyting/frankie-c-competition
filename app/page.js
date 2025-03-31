@@ -156,8 +156,11 @@ export default function CountdownTimer() {
         </div>
 
         <div className="text-sm text-center text-black font-semibold px-20">
-          <Link href="/privacy-policy" className="hover:underline">
+          <Link href="/privacy-policy" className="hover:underline mr-3">
             Privacy Policy
+          </Link>
+          <Link href="/official-rules" className="hover:underline">
+            Official Rules
           </Link>
           <span className="mx-2">|</span>
           Contest sponsored and run by <strong>ABC Media</strong> and{" "}
