@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Name Our Brownie & Win $10,000! | Frankie C Contest",
+  title:
+    "Help Me Name My Brownie & Have a Chance to Win $10,000! | Frankie C Contest",
   description:
     "Want a chance to win $10,000? Help us name our delicious new high-protein brownie and claim the cash prize! Submit your best name idea and be part of the next big food brand. Enter now!",
 };
