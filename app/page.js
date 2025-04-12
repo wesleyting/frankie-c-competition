@@ -41,7 +41,7 @@ export default function VotePage() {
               The Winning Name Is...
             </h2>
             <h1 className="mb-6 xl:mb-8 text-center text-3xl font-bold text-white md:text-5xl lg:text-7xl md:leading-[1.2] mt-6">
-              ALL-IN BROWNIES
+              ALL-IN BROWNIE
             </h1>
 
             <p className="text-lg text-white md:text-xl mb-12 max-w-3xl mx-auto">
