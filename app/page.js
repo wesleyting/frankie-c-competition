@@ -51,6 +51,18 @@ export default function VotePage() {
             </p>
 
             <div className="bg-white text-black rounded-xl px-6 py-8 md:px-10 md:py-10 max-w-3xl mx-auto shadow-lg bg-opacity-30 text-white mb-8">
+              <h3 className="text-2xl font-bold mb-4">📢 Update (April 16):</h3>
+              <p className="text-base md:text-lg mb-4">
+                Thanks for your continued patience! We're still in the process
+                of verifying all eligible winners. Due to high participation and
+                the thoroughness required for fair prize distribution, final
+                verification and winner announcements are taking slightly longer
+                than expected. We'll post the list of verified winners here as
+                soon as the process is complete.
+              </p>
+            </div>
+
+            <div className="bg-white text-black rounded-xl px-6 py-8 md:px-10 md:py-10 max-w-3xl mx-auto shadow-lg bg-opacity-30 text-white mb-8">
               <h3 className="text-2xl font-bold mb-4">
                 📬 Next Steps for Potential Winners:
               </h3>
