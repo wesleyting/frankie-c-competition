@@ -34,15 +34,76 @@ export default function WinnersPage() {
       </header>
 
       <main className="flex flex-col items-center justify-center px-4 py-16 z-10">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl mt-6 text-white font-bold text-center mb-12 z-10">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl mt-6 text-white font-bold text-center mb-6 z-10">
           Official Winners of Frankie C’s Naming Contest
         </h1>
 
+        <p className="text-lg text-white z-10 mb-12 max-w-2xl px-3">
+          Congratulations to all winners! Each winner listed below will receive
+          a digital gift card via email. Prize fulfillment is expected to begin
+          soon, and winners can expect to receive their prize email within
+          approximately 4–6 weeks. The claim link will remain valid for 3
+          months, and once activated, the digital gift card will remain valid
+          for 6 months.
+        </p>
+
         <div className="bg-white bg-opacity-20 backdrop-blur-sm text-white rounded-xl p-8 max-w-3xl w-full text-center border border-white border-opacity-30">
           <h2 className="text-2xl font-bold mb-3">Contest Winners</h2>
-          <p className="text-xl text-white mb-60">
-            The official list of verified winners will be posted here soon.
-          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-lg text-white">
+            <p>Jason N. — $192.30</p>
+            <p>Ryan-Jay T. — $192.30</p>
+            <p>Khalid E. — $192.30</p>
+            <p>Casey M. — $192.30</p>
+            <p>Quan L. — $192.30</p>
+            <p>Ofir N. — $192.30</p>
+            <p>Brandon M. — $192.30</p>
+            <p>Chase F. — $192.30</p>
+            <p>Thomas M. — $192.30</p>
+            <p>Orie Z. — $192.30</p>
+            <p>Catherine G. — $192.30</p>
+            <p>Nell H. — $192.30</p>
+            <p>Terron W. — $192.30</p>
+            <p>Paul B. — $192.30</p>
+            <p>Luis C. — $192.30</p>
+            <p>Gary B. — $192.30</p>
+            <p>Murad A. — $192.30</p>
+            <p>Dylan K. — $192.30</p>
+            <p>Benjamin S. — $192.30</p>
+            <p>Benjamin G. — $192.30</p>
+            <p>Michelle W. — $192.30</p>
+            <p>Justin J. — $192.30</p>
+            <p>Zachary G. — $192.30</p>
+            <p>Stevan H. — $192.30</p>
+            <p>Jack L. — $192.30</p>
+            <p>Trevor T. — $192.30</p>
+            <p>Wrene R. — $192.30</p>
+            <p>Victor B. — $192.30</p>
+            <p>Yheison G. — $192.30</p>
+            <p>Chiyu R. — $192.30</p>
+            <p>Laurie C. — $192.30</p>
+            <p>Gail S. — $192.30</p>
+            <p>Stetson P. — $192.30</p>
+            <p>John M. — $192.30</p>
+            <p>Austin L. — $192.30</p>
+            <p>Dianna O. — $192.30</p>
+            <p>Turlough B. — $192.30</p>
+            <p>Jacob N. — $192.30</p>
+            <p>Paul C. — $192.30</p>
+            <p>Kaeokoa K. — $192.30</p>
+            <p>Clay P. — $192.30</p>
+            <p>Joey M. — $192.30</p>
+            <p>Quinton S. — $192.30</p>
+            <p>Cristian U. — $192.30</p>
+            <p>Caleb G. — $192.30</p>
+            <p>Ian K. — $192.30</p>
+            <p>Alexis S. — $192.30</p>
+            <p>David F. — $192.30</p>
+            <p>Raymond B. — $192.30</p>
+            <p>Isaac B. — $192.30</p>
+            <p>Erick C. — $192.30</p>
+            <p>Reta W. — $192.30</p>
+          </div>
         </div>
 
         {/* Winner list component goes here, once available */}

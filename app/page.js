@@ -34,10 +34,10 @@ export default function VotePage() {
         </div>
       </header>
 
-      <div className="flex flex-col items-center justify-centerz-10">
+      <div className="flex flex-col items-center justify-center z-10">
         <div className="w-full max-w-6xl relative p-4">
           <div className="z-20 relative pb-0">
-            <h2 className="text-white  font-bold text-center text-lg md:text-xl lg:text-3xl mt-10">
+            <h2 className="text-white font-bold text-center text-lg md:text-xl lg:text-3xl mt-10">
               The Winning Name Is...
             </h2>
             <h1 className="mb-6 xl:mb-8 text-center text-3xl font-bold text-white md:text-5xl lg:text-7xl md:leading-[1.2] mt-6">
@@ -45,63 +45,29 @@ export default function VotePage() {
             </h1>
 
             <p className="text-lg text-white md:text-xl mb-12 max-w-3xl mx-auto">
-              A huge thank you to everyone who participated in the contest! We
-              truly appreciate your creativity and support in helping us choose
-              the final name.
+              Thank you to everyone who participated! The winners have now been
+              verified and prize fulfillment will be underway soon.
             </p>
 
             <div className="bg-white text-black rounded-xl px-6 py-8 md:px-10 md:py-10 max-w-3xl mx-auto shadow-lg bg-opacity-30 text-white mb-8">
-              <h3 className="text-2xl font-bold mb-4">📢 Update (April 16):</h3>
-              <p className="text-base md:text-lg mb-4">
-                Thanks for your continued patience! We're still in the process
-                of verifying all eligible winners. Due to high participation and
-                the thoroughness required for fair prize distribution, final
-                verification and winner announcements are taking slightly longer
-                than expected. We'll post the list of verified winners here as
-                soon as the process is complete.
-              </p>
-            </div>
-
-            <div className="bg-white text-black rounded-xl px-6 py-8 md:px-10 md:py-10 max-w-3xl mx-auto shadow-lg bg-opacity-30 text-white mb-8">
               <h3 className="text-2xl font-bold mb-4">
-                📬 Next Steps for Potential Winners:
+                🏆 See the Official Winners List:
               </h3>
               <p className="text-base md:text-lg mb-4">
-                Emails have been sent to all entrants whose submissions matched
-                the winning name or one of its approved variations. Please note
-                that prize eligibility is still subject to verification in
-                accordance with the Official Rules.
+                Visit our{" "}
+                <a href="/winners" className="underline font-semibold">
+                  Winners Page
+                </a>{" "}
+                to see the full list of winners and prize details!
               </p>
+              <h3 className="text-2xl font-bold mb-4 mt-10">
+                📬 Prize Fulfillment Timeline:
+              </h3>
               <p className="text-base md:text-lg mb-4">
-                If you believe you should have received an email but haven’t:
-              </p>
-              <ul className="text-left list-disc list-inside space-y-2">
-                <li>Check your spam or promotions folder</li>
-                <li>
-                  Still nothing? Email{" "}
-                  <a
-                    href="mailto:frankieccontest@gmail.com"
-                    className="underline font-semibold"
-                  >
-                    frankieccontest@gmail.com
-                  </a>{" "}
-                  with your full name and the email address you used to enter.
-                </li>
-              </ul>
-              <p className="mt-6 italic">
-                Only those who submitted an exact match or qualifying variation
-                of the winning name are eligible. All potential winners are
-                currently pending verification. Once verification is complete, a
-                list of verified winners will be posted here.
-              </p>
-              <p className="text-sm text-white text-center italic mt-4">
-                * The $10,000 prize pool will be split evenly among all verified
-                winners.
+                Prize emails are expected to be sent within 4–6 weeks.
               </p>
             </div>
           </div>
-
-          <div />
         </div>
       </div>
 
