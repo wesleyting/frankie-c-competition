@@ -40,11 +40,11 @@ export default function WinnersPage() {
 
         <p className="text-lg text-white z-10 mb-12 max-w-2xl px-3">
           Congratulations to all winners! Each winner listed below will receive
-          a digital gift card via email. Prize fulfillment is expected to begin
-          soon, and winners can expect to receive their prize email within
-          approximately 4–6 weeks. The claim link will remain valid for 3
-          months, and once activated, the digital gift card will remain valid
-          for 6 months.
+          their prize via eCheck, delivered by email. Prize fulfillment has
+          begun, and distribution is expected to follow shortly. The prize email
+          will include all necessary details and instructions for accessing the
+          eCheck. Please be sure to check your inbox and spam folder once prize
+          distribution begins.
         </p>
 
         <div className="bg-white bg-opacity-20 backdrop-blur-sm text-white rounded-xl p-8 max-w-3xl w-full text-center border border-white border-opacity-30">
