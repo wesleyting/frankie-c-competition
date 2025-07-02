@@ -45,8 +45,8 @@ export default function VotePage() {
             </h1>
 
             <p className="text-lg text-white md:text-xl mb-12 max-w-3xl mx-auto">
-              Thank you to everyone who participated! The winners have now been
-              verified and prize fulfillment will be underway soon.
+              The contest is now officially closed — thank you to everyone who
+              entered and voted!
             </p>
 
             <div className="bg-white text-black rounded-xl px-6 py-8 md:px-10 md:py-10 max-w-3xl mx-auto shadow-lg bg-opacity-30 text-white mb-8">
@@ -58,13 +58,17 @@ export default function VotePage() {
                 <a href="/winners" className="underline font-semibold">
                   Winners Page
                 </a>{" "}
-                to see the full list of winners and prize details!
+                to view the final list of winners and prize amounts.
               </p>
+
               <h3 className="text-2xl font-bold mb-4 mt-10">
-                📬 Prize Fulfillment Timeline:
+                💸 Prizes Have Been Sent
               </h3>
               <p className="text-base md:text-lg mb-4">
-                Prize emails are expected to be sent within 4–6 weeks.
+                Prize emails were sent on <strong>June 10</strong> via eCheck
+                from <code>noreply@checkissuing.com</code>. If you haven't
+                received yours, please check your spam folder or email us for
+                help.
               </p>
             </div>
           </div>

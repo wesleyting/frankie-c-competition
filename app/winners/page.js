@@ -39,12 +39,18 @@ export default function WinnersPage() {
         </h1>
 
         <p className="text-lg text-white z-10 mb-12 max-w-2xl px-3">
-          Congratulations to all winners! Each winner listed below will receive
-          their prize via eCheck, delivered by email. Prize fulfillment has
-          begun, and distribution is expected to follow shortly. The prize email
-          will include all necessary details and instructions for accessing the
-          eCheck. Please be sure to check your inbox and spam folder once prize
-          distribution begins.
+          The contest is now officially closed — congratulations to all winners!
+          Prize emails were sent on <strong>June 10</strong> via eCheck from{" "}
+          <code>noreply@checkissuing.com</code>. If you are listed below and
+          haven’t seen it, please check your spam or promotions folder. Still
+          need help? Reach out to us at{" "}
+          <a
+            href="mailto:frankieccontest@gmail.com"
+            className="underline font-semibold"
+          >
+            frankieccontest@gmail.com
+          </a>
+          .
         </p>
 
         <div className="bg-white bg-opacity-20 backdrop-blur-sm text-white rounded-xl p-8 max-w-3xl w-full text-center border border-white border-opacity-30">
