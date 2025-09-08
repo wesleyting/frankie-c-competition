@@ -316,3 +316,7 @@ body {
     transition: none !important;
   }
 }
+
+.text-card-foreground {
+  margin-bottom: 3rem;
+}
